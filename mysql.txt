@@ -1,0 +1,23 @@
+ALTER TABLE customer ADD pincode int(6) NOT null 
+AFTER salary 
+
+ALTER TABLE customer ADD did int(3) NOT null 
+AFTER cname
+
+UPDATE customer SET pincode=522403
+
+UPDATE customer SET pincode=522402 WHERE cid=2
+
+UPDATE customer SET did=3 WHERE cid=3
+
+CREATE TABLE department(did int(3) PRIMARY KEY AUTO_INCREMENT, dname varchar(5) NOT NULL)
+
+SELECT c.cname,d.dname,d.did FROM customer c,department d
+
+SELECT c.cname,d.dname,d.did FROM customer c LEFT JOIN department d ON c.did=d.did
+
+DELETE FROM employer WHERE eid=2
+
+DELETE FROM employer
+TRUNCATE employer
+DROP TABLE employer

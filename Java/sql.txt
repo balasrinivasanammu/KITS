@@ -1,0 +1,31 @@
+CREATE DATABASE  kits 
+
+CREATE TABLE customer(cid int(5) PRIMARY KEY AUTO_INCREMENT,cname varchar(50) NOT Null,age int(3) NOT Null,dob date NOT null,salary float(5,2) NOT null,address text null,mobile text NOT null,email varchar(70) UNIQUE)
+
+
+DESCRIBE customer
+
+y2k
+
+INSERT INTO customer(cname,age,dob,salary,address,mobile,email) VALUES('sai',40,'2000-10-10',888.88,'chennai','9842098420','sai@gmail.com')
+INSERT INTO customer(cname,age,dob,salary,address,mobile,email) VALUES('mrs.sai',30,'1998-10-10',999.99,'vijayawada','9842098421','mrssai@gmail.com')
+
+
+INSERT INTO customer(cname,age,dob,salary,address,mobile,email) VALUES('praveen',20,'2002-07-10',999.99,'narasaraopet','9842094212','praveen@gmail.com'),('mr.shashank',20,'2002-10-10',999.99,'guntur','9842098231','shashank@gmail.com'),('ex-sai',30,'1998-04-10',939.99,'hyd','9842093421','ex.sai@gmail.com')
+
+SELECT * FROM customer
+SELECT cname,age,dob FROM customer
+SELECT * FROM customer WHERE cname like 'm%k'
+SELECT * FROM `customer` WHERE dob like '%-10-%'
+SELECT * FROM customer WHERE dob like '1998%'
+SELECT salary,cname FROM `customer` WHERE salary<(SELECT MAX(salary) FROM customer)
+SELECT MAX(salary),cname FROM `customer` WHERE salary<(SELECT MAX(salary) FROM customer)
+SELECT * FROM customer ORDER BY DESC limit 1 OFFSET 1
+SELECT * FROM customer ORDER BY CNAME ASC
+SELECT * FROM customer ORDER BY salary ASC LIMIT 3
+
+SELECT COUNT(*) FROM customer
+
+SELECT COUNT(*),address FROM customer GROUP BY address
+
+SELECT GROUP_CONCAT(cname),COUNT(*),address FROM customer GROUP BY address

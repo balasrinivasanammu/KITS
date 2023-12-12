@@ -1,0 +1,11 @@
+main()
+{
+	if(-100)
+	{
+		printf("Hello");
+	}
+	else
+	{
+		printf("Hai");
+	}
+}
